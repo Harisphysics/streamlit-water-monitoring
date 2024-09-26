@@ -40,9 +40,9 @@ data_list_1 = sheet_1
 
 dates = [row['Date'] for row in data_list_1]
 times = [row['Time'] for row in data_list_1]
-turbidity = [row['Turbidity'] for row in data_list_1]
+turbidity = [(-111.25*(row['Turbidity']*5/1024) + 506.67) for row in data_list_1]
 ph = [row['pH'] for row in data_list_1]
-tds = [row['TDS'] for row in data_list_1]
+tds = [(row['TDS']+1.3333)/4.8 for row in data_list_1]
 
 # Combine Date and Time into DateTime
 datetimes = [datetime.strptime(f"{date} {time}", "%m/%d/%Y %H.%M.%S") for date, time in zip(dates, times)]
