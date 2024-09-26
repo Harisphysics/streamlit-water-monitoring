@@ -59,9 +59,9 @@ def create_styled_markdown(label, value):
     <div class="current-value">{value}</div>
     """
 
-columns[0].markdown(create_styled_markdown("NTU", turbidity[-1]), unsafe_allow_html=True)
-columns[1].markdown(create_styled_markdown("pH", ph[-1]), unsafe_allow_html=True)
-columns[2].markdown(create_styled_markdown("mg/mL", tds[-1]), unsafe_allow_html=True)
+columns[0].markdown(create_styled_markdown("NTU", round(turbidity[-1], 2)), unsafe_allow_html=True)
+columns[1].markdown(create_styled_markdown("pH", round(ph[-1], 2)), unsafe_allow_html=True)
+columns[2].markdown(create_styled_markdown("mg/mL", round(tds[-1],2)), unsafe_allow_html=True)
 
 if st.button('Refresh Data'):
     st.cache_data.clear()
